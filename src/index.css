@@ -2,7 +2,7 @@
     overflow: visible !important;
   }
 
-   /* swiper linear loop */
+/* swiper linear loop */
 .swiper.is-logo-loop .swiper-wrapper {
     transition-timing-function: linear;
 }
