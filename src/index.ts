@@ -1,6 +1,5 @@
 import './index.css';
 
-import { greetUser } from '$utils/greet';
 import { parallaxAnim, roadPath, stepAnim, teamAnim } from '$utils/gsap';
 import { blogCategories, copyBlog, hideEmpty, spanCMS, swipeElement } from '$utils/jquery';
 import { loadScript } from '$utils/loadScript';
@@ -8,9 +7,6 @@ import { swiperLogoLoop, swiperReferal } from '$utils/swiper';
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
-  const name = 'Clément 13.52';
-  greetUser(name);
-
   /*
   ! Call functions
   */
