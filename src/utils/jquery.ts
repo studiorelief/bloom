@@ -8,6 +8,7 @@ export function swipeElement() {
   });
 }
 
+// V1
 export function spanCMS() {
   $(document).ready(function () {
     $('.switch-cms').html(function (_, html) {
@@ -20,7 +21,7 @@ export function spanCMS() {
 // Hide CMS if empty
 export function hideEmpty() {
   $('.w-dyn-empty').each(function () {
-    $(this).parent().hide();
+    $(this).closest('section').hide(); // Cible spécifiquement l'élément <section> le plus proche
   });
 }
 

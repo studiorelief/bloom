@@ -1,6 +1,14 @@
 import './index.css';
 
-import { parallaxAnim, roadPath, stepAnim, teamAnim } from '$utils/gsap';
+import {
+  bulletHeroComponentAnim,
+  bulletHeroHomeAnim,
+  bulletHeroInnerAnim,
+  parallaxAnim,
+  roadPath,
+  stepAnim,
+  teamAnim,
+} from '$utils/gsap';
 import { blogCategories, copyBlog, hideEmpty, spanCMS, swipeElement } from '$utils/jquery';
 import { loadScript } from '$utils/loadScript';
 import { swiperLogoLoop, swiperReferal } from '$utils/swiper';
@@ -33,13 +41,26 @@ window.Webflow.push(() => {
 
   if (window.location.pathname === '/') {
     roadPath();
+    bulletHeroHomeAnim();
   }
 
   if (window.location.pathname.includes('/offres')) {
     stepAnim();
+    bulletHeroInnerAnim();
   }
 
   if (window.location.pathname.includes('/a-propos')) {
     teamAnim();
+    bulletHeroComponentAnim();
+  }
+
+  const pathsToCheck = ['/a-propos', '/ressources', '/faq'];
+
+  if (
+    pathsToCheck.some(
+      (path) => window.location.pathname.includes(path) || window.location.pathname === '/blog'
+    )
+  ) {
+    bulletHeroComponentAnim();
   }
 });

@@ -10,9 +10,12 @@ gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 export function parallaxAnim() {
   gsap.registerPlugin(ScrollTrigger);
 
+  // Déterminez la valeur de déplacement en fonction de la largeur de l'écran
+  const displacement = window.innerWidth <= 768 ? '2.5rem' : '5rem'; // Utilisez 768px comme point de rupture pour mobile
+
   document.querySelectorAll('[scroll="gsap-top"]').forEach((element) => {
-    // Vérifie si l'élément a un z-index de -1; ajustez cette condition selon vos besoins
-    if (!element.classList.contains('.chiffres_decorative')) {
+    if (!element.classList.contains('chiffres_decorative')) {
+      // Suppression du point pour 'contains'
       gsap.from(element, {
         scrollTrigger: {
           trigger: element,
@@ -20,7 +23,7 @@ export function parallaxAnim() {
           end: 'bottom top',
           scrub: true,
         },
-        y: '-5rem',
+        y: `-${displacement}`,
         clearProps: 'all',
       });
     }
@@ -34,7 +37,7 @@ export function parallaxAnim() {
         end: 'bottom top',
         scrub: true,
       },
-      y: '5rem',
+      y: displacement,
     });
   });
 }
@@ -132,5 +135,62 @@ export function teamAnim() {
     duration: 2,
     ease: 'linear',
     stagger: 1, // Applique un décalage de 0.2 secondes entre chaque animation
+  });
+}
+
+/*
+ * * Bullet Home
+ */
+export function bulletHeroHomeAnim() {
+  gsap.set('.hero_bullet.is-home', { y: '0rem' });
+
+  gsap.to('.hero_bullet.is-home', {
+    scrollTrigger: {
+      trigger: '.section_hero',
+      start: '80% 50%',
+      end: '100% 50%',
+      scrub: 1,
+      markers: false,
+    },
+    y: '25.75rem',
+    ease: 'linear',
+  });
+}
+
+/*
+ * * Bullet Offres
+ */
+export function bulletHeroInnerAnim() {
+  gsap.set('.hero_bullet.is-inner', { y: '0rem' });
+
+  gsap.to('.hero_bullet.is-inner', {
+    scrollTrigger: {
+      trigger: '.section_hero-i',
+      start: '70% 50%',
+      end: '100% 50%',
+      scrub: 1,
+      markers: false,
+    },
+    y: '21.5rem',
+    ease: 'linear',
+  });
+}
+
+/*
+ * * Bullet Hero Component
+ */
+export function bulletHeroComponentAnim() {
+  gsap.set('.hero-c_bullet', { y: '0rem' });
+
+  gsap.to('.hero-c_bullet', {
+    scrollTrigger: {
+      trigger: '.section_hero-c',
+      start: '150% 50%',
+      end: '100% 50%',
+      scrub: 1,
+      markers: false,
+    },
+    y: '25rem',
+    ease: 'linear',
   });
 }
