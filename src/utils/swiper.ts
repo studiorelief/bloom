@@ -15,7 +15,7 @@ export function swiperLogoLoop() {
       disableOnInteraction: false,
       reverseDirection: false,
     },
-    speed: 2000,
+    speed: 3500,
   });
 }
 

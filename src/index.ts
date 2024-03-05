@@ -37,7 +37,9 @@ window.Webflow.push(() => {
   hideEmpty();
   copyBlog();
 
-  parallaxAnim();
+  if (window.innerWidth > 1024) {
+    parallaxAnim();
+  }
 
   if (window.location.pathname === '/') {
     roadPath();
